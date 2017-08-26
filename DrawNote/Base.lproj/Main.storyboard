@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5JA-RI-zZY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DrawNote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,88 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtF-f7-Yfa" customClass="LineView" customModule="DrawNote" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="83.5" width="300" height="500"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="c1V-6u-jiQ"/>
+                                    <constraint firstAttribute="height" constant="500" id="rkG-yo-3ug"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBS-Sa-5sc">
+                                <rect key="frame" x="285" y="602" width="60" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="rsx-07-p9x"/>
+                                    <constraint firstAttribute="width" constant="60" id="wYv-Sz-66Z"/>
+                                </constraints>
+                                <state key="normal" title="NEXT &gt;"/>
+                                <connections>
+                                    <segue destination="9Xy-cd-Q9U" kind="show" id="Fuh-fM-Deo"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OBS-Sa-5sc" secondAttribute="trailing" constant="30" id="19T-Rh-EiU"/>
+                            <constraint firstItem="wtF-f7-Yfa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Qz-TR-QNN"/>
+                            <constraint firstItem="wtF-f7-Yfa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="X1Z-Nz-amj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OBS-Sa-5sc" secondAttribute="bottom" constant="30" id="isM-VH-K3P"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Vnf-Lw-6lj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="137.18140929535232"/>
+        </scene>
+        <!--DrawVC-->
+        <scene sceneID="Ne4-Xb-2eE">
+            <objects>
+                <viewController id="9Xy-cd-Q9U" customClass="DrawVC" customModule="DrawNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mix-oG-3Gh"/>
+                        <viewControllerLayoutGuide type="bottom" id="GTQ-I3-WIa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r6v-8d-PgM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beE-dI-W1B" customClass="FreeDraw" customModule="DrawNote" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GTQ-I3-WIa" firstAttribute="top" secondItem="beE-dI-W1B" secondAttribute="bottom" id="e57-dg-wZE"/>
+                            <constraint firstItem="beE-dI-W1B" firstAttribute="leading" secondItem="r6v-8d-PgM" secondAttribute="leading" id="gIB-y6-3vf"/>
+                            <constraint firstAttribute="trailing" secondItem="beE-dI-W1B" secondAttribute="trailing" id="pAu-qW-4bq"/>
+                            <constraint firstItem="beE-dI-W1B" firstAttribute="top" secondItem="r6v-8d-PgM" secondAttribute="top" id="urL-7P-XHq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8a-WO-ya5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1800.8" y="718.29085457271367"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XRz-ID-Gbt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5JA-RI-zZY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E4X-yA-Xwy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CoU-WC-oRD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wh-Kc-DHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
 </document>
