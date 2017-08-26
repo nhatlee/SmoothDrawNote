@@ -1,3 +1,3 @@
 # SmoothDrawNote
 Draw note
-Provided smooth drawing lines by using UIBezierPath
+provided smooth drawing lines by using UIBezierPath
